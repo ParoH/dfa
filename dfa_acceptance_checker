@@ -1,0 +1,49 @@
+import java.util.*;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Input: ");
+        String input = sc.nextLine();
+        sc.close();
+
+        String state = "q0";
+
+        for (char c: input.toCharArray()){
+            switch (state) {
+                case "q0":
+                    if(c == '0') state = "q1";
+                    else if (c == '1') state = "q0";
+                    else {
+                        System.out.println("Invalid Input. Must be '0' or '1'.");
+                        return;
+                    }
+                    
+                    break;
+                case "q1":
+                    if (c == '0') state = "q1";
+                    else if (c == '1') state = "q2";
+                    else {
+                        System.out.println("Invalid Input. Must be '0' or '1'.");
+                        return;
+                    }
+                    break;
+
+                case "q2":
+                    if (c == '0') state = "q1";
+                    else if (c == '1') state = "q0";
+                    else {
+                        System.out.println("Invalid Input. Must be '0' or '1'.");
+                        return;
+                                    }
+            }
+     
+        }
+             if(state.equals("q2")){
+                System.out.println("Output Accpeted");
+             }else{
+                System.out.println("Output rejected");
+             }
+    }
+     
+}
